@@ -1,0 +1,52 @@
+create database demo; // creating database
+drop database demo; // droping database
+use demo;// using database
+create table student( id int,name varchar(30),email varchar(50)); //creating table
+desc student;//displays description of the table
+select * from student;//display all data in the table
+select name from student;// display name
+insert into student values(1,"janu","abc123@gmail.com");//inserting values into table
+update student set name="mouni" where id=1; //upadting table
+delete from student; //deleting all data
+delete from student where email="abc123@gmail.com"; // deleting particular row
+truncate table student;// delete all data
+drop table student; // delete all data along with table and again we run the table it shows the table doesnot exit
+SELECT * FROM jhansi.employee;
+use jhansi;
+alter table employee add column address varchar(60);// adding new column
+alter table employee drop column address;// droping a column
+desc employee;
+alter table employee modify name varchar(30);//modify the table eg: varchar(20) to varchar(30)
+
+create table employee2(id int primary key auto_increment,name varchar(30) not null,email varchar(50) not null unique,age int check(age>=18),state varchar(20) default "AP"); //creatingtable with some constants like
+primary key - it does not accept null and duplicate values
+unique-it is uniquely identified and it accepts null values and does not accept duplicate values
+not null-it does not accept null values but it accepts duplicate values
+auto_increament - automatically increaments
+check - it used to check condition while we are inserting data(eg:voting)
+default : it stores default values if doesn't give value
+
+
+desc employee2;
+insert into employee2(name,email,age,state) values("janu","janu123@gmail.com",20,"AP"),("mouni","moumi@gmail.com",30,"UP");
+select state from employee2 where email="jan123@gmail.com";
+insert into employee2(name,email,age) values("janu","jan123@gmail.com",30);
+select count(id) from employee2; // counting no.of id's
+select * from employee2 where age<30 or age<35; // selecting using "or"
+select * from employee2 where age<30 and age<35; // selecting using "and"
+select * from employee2 where not age<30; // selecting using "not"
+select * from employee2 order by name; // selecting using "order by"(ascending order)
+select * from employee2 order by name desc; // selecting using "order by"(descending order)
+select * from employee2 limit 2;//display in limit
+select min(age) from employee2; // selecting minimum value
+select max(age) from employee2; // selecting maximum value
+select sum(age) from employee2; // selecting sum
+select avg(age) from employee2; // selecting average value
+select * from employee2 where name like "j%";//display all names start with "j"
+select * from employee2 where name like "%u";//display all name end with "u"
+select * from employee2 where name like "_j%";//it leaves first letter from starting  and checks second letters and give names those are strating with "j"
+select * from employee2 where name like "%u_";//it leaves first letter from ending and checks second letters and display all names those are ending with "j"
+select * from employee2 where name like "%j%u";// it checks both conditions starting and ending letters
+
+
+
